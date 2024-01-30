@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#This is my FASTQ script!
+
+#Unzip the file ERR020236_1.fastq.gz
+gunzip ERR020236_1.fastq.gz
+
+#How many GB is this FASTQ file? .18GB
+ls -l ERR020236_1.fastq
+
+#How many sequences are in this FASTG file? 750000
+awk ' (NR%4==2) ' ERR020236_1.fastq | wc -l
+
+#How many sequences have "N's" in it? 29479
+awk '(NR%4==2)' ERR020236_1.fastq | grep "N" | wc -l
+
+#Count the number of "As", "Ts", "Cs", and "Gs" that are in sequence 59?
+awk '(NR%4==2)' ERR020236_1.fastq | awk 'NR==59' | grep -o '[ATCG]'| sort | uniq -c
