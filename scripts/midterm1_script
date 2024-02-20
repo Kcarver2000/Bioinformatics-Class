@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# code was used to get to make the midterm1 directory
+mkdir Midterm1
+
+#code was used to move the Kikkawaii file from downloads to my new directory
+mv  ../../Desktop/Kikkawaii.fasta.txt .
+
+#code was used to move the rest of my fasta files
+mv  ../../Desktop/fasta/*.fasta .
+
+#codes were used to find the length of the sequences in each fasta file
+tail -n +2 Kikkawaii.fasta | wc -m
+tail -n +2 Human.fasta | wc -m
+tail -n +2 fruit_fly.fasta | wc -m
+tail -n +2 Zebrafish.fasta | wc -m
+tail -n +2 GiantPanda.fasta | wc -m
+tail -n +2 GreyWolf.fasta | wc -m
+tail -n +2 HouseMouse.fasta | wc -m
+tail -n +2 rhesusmonkey.fasta | wc -m
+tail -n +2 AfricanBushElephant.fasta | wc -m
+
+#codes were used to compare the nucleotide compostion in each fasta file
+tail -n +2 GreyWolf.fasta | grep -o '[ATCG]' | sort | uniq -c                   tail -n +2 HouseMouse.fasta | gr
+ep -o '[ATCG]' | sort | uniq -c
+tail -n +2 rhesusmonkey.fasta | grep -o '[ATCG]' | sort | uniq -c
+tail -n +2 AfricanBushElephant.fasta | grep -o '[ATCG]' | sort | uniq -c
+tail -n +2 GiantPanda.fasta | grep -o '[ATCG]' | sort | uniq -c
+tail -n +2 Zebrafish.fasta | grep -o '[ATCG]' | sort | uniq -c
+tail -n +2 fruit_fly.fasta | grep -o '[ATCG]' | sort | uniq -c
+tail -n +2 Human.fasta | grep -o '[ATCG]' | sort | uniq -c
+tail -n +2 kikkawaii.fasta | grep -o '[ATCG]' | sort | uniq -c
+
+#used to  move all the 10 sequences into 1
+cat AfricanBushElephant.fasta fruit_fly.fasta GiantPanda.fasta GreyWolf.fasta HouseMouse.fasta Human.fasta Kikka
+waii.fasta rhesusmonkey.fasta Zebrafish.fasta > abcd1_sequences.fasta
